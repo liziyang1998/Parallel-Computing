@@ -6,9 +6,9 @@
 #include <vector>
 
 using namespace std;
-#define NUM_THREADS 8
+#define NUM_THREADS 16
 #define INF 999999999
-#define MAXN 10000005
+#define MAXN 15000005
 int n;
 int number[MAXN];
 fstream fileName;
@@ -92,6 +92,8 @@ int main(int argc, char * argv[]){
         printf("Paraments error\n");
         return 0;
     }
+    double start, end;
+    start = omp_get_wtime();
     if (fileIO(argv[1]) == -1){
         return 0;
     }
@@ -99,4 +101,6 @@ int main(int argc, char * argv[]){
     if (PSRS(argv[2]) == -1){
         return 0;
     }
+    end = omp_get_wtime();
+    printf("time = %lf\n", (double)(end - start));
 }

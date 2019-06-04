@@ -10,7 +10,7 @@
 using namespace std;
 
 int i, j, k;
-int N = 360000;
+int N = 70000000;
 
 int cmp(const void *a, const void *b){
     if (*(int *)a < *(int *)b)
@@ -197,9 +197,6 @@ void psrs_mpi(int *array, int N){
     if (myId == 0){
         endtime = MPI_Wtime();
         printf("time : %f\n", endtime - starttime);
-        for (k = 0; k < N; k++)
-            printf("%d ", array[k]);
-	    printf("\n");
     }
     if (p > 1){
         free(newPartitions);

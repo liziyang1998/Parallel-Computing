@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     }
     sum = sum * h;                                                    //每个进程计算的矩形面积之和
     MPI_Reduce(&sum, &pi, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD); //利用归约操作(MPI_SUM)将所有进程的sum累加到root进程(0)的sum当中得到结果
-    MPI_Barrier(MPI_COMM_WORLD); //阻塞，等待所有进程完成，否则有的进程会提前结束程序
+    MPI_Barrier(MPI_COMM_WORLD);
     if (myid == 0)
     {
         endtime = MPI_Wtime();
